@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
+
 
 const Modal = () => {
     const [inputData,setInputData,description,setDescription,items,setItems] = useContext(UserContext)
@@ -29,6 +30,10 @@ const Modal = () => {
         setDescription('')
        }
     }
+    // add localStorage items
+    useEffect(()=>{
+      localStorage.setItem('lists',JSON.stringify(items))
+    },[items])
 
     return (
         <>
@@ -36,7 +41,7 @@ const Modal = () => {
   Create TodoList
 </button>
 
-<div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div className="modal-dialog modal-dialog-centered" role="document">
     <div className="modal-content">
       <div className="modal-header">

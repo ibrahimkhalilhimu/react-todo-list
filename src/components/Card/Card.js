@@ -3,7 +3,6 @@ import { UserContext } from '../../App';
 
 const Card = () => {
     const [inputData,setInputData,description,setDescription,items,setItems] = useContext(UserContext)
-    console.log(items);
     const deletedItems = (id)=>{
       const deleteItems = items.filter((elem,index)=>{
         return index !== id;
